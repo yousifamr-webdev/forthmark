@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\CreateIdea;
 use App\Models\Idea;
 use App\Http\Requests\StoreIdeaRequest;
 use App\Http\Requests\UpdateIdeaRequest;
@@ -16,6 +17,8 @@ class IdeaController extends Controller
      */
     public function index(Request $request)
     {
+
+
         $user = Auth::user();
 
         $ideas = $user->ideas()
@@ -44,14 +47,10 @@ class IdeaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreIdeaRequest $request)
+    public function store(StoreIdeaRequest $request, CreateIdea $action)
     {
+        $action->handle($request->safe()->all());
 
-        $idea =  Auth::user()->ideas()->create($request->safe()->except('steps'));
-
-        $idea->steps()->createMany(
-            collect($request->steps)->map(fn($step) => ['description' => $step])
-        );
 
         return to_route('idea.index')->with('success', 'Idea created!');
     }

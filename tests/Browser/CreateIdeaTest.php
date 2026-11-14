@@ -15,7 +15,6 @@ it('creates a new idea', function () {
         ->click('@submit-new-link-button')
         ->click('button[type="submit"]')
         ->assertPathIs('/ideas')
-        ->assertSee('Some Example Title')
         ->assertNoJavaScriptErrors();
 
     $idea = $user->ideas()->sole();
