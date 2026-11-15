@@ -8,7 +8,8 @@
             </a>
 
             <div class="gap-x-3 flex items-center">
-                <button class="btn btn-outlined">
+                <button x-data class="btn btn-outlined" data-test="edit-idea-button"
+                    @click="$dispatch('open-modal','edit-idea')">
 
 
                     Edit Idea
@@ -24,19 +25,23 @@
         </div>
         <div class="mt-8 space-y-6">
             @if ($idea->image_path)
-           <div>     <img src="{{ asset('storage/' . $idea->image_path) }}" alt="Idea featured image"
-                    class="w-full h-auto object-cover"></div>
+                <div> <img src="{{ asset('storage/' . $idea->image_path) }}" alt="Idea featured image"
+                        class="w-full h-auto object-cover"></div>
             @endif
 
             <h1 class="font-bold text-4xl">{{ $idea->title }}</h1>
             <div class="mt-2 flex gap-x-3 items-center">
 
-                <x-status-label :status="$idea->status->value">{{ $idea->status->label() }}</x-status-label>
+                <x-idea.status-label :status="$idea->status->value">{{ $idea->status->label() }}</x-idea.status-label>
                 <div class="text-muted-foreground text-sm">{{ $idea->created_at->diffForHumans() }} </div>
             </div>
+
+            @if ($idea->description)
             <x-card class="mt-6">
                 <div class="text-foreground max-w-none cursor-pointer">{{ $idea->description }}</div>
             </x-card>
+                
+            @endif
 
             @if ($idea->steps->count())
                 <div>
@@ -80,7 +85,7 @@
                 </div>
             @endif
 
-
+            <x-idea.modal :idea="$idea" />
 
         </div>
     </div>
