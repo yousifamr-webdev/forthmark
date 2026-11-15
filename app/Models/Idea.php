@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\IdeaStatus;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -49,4 +50,11 @@ class Idea extends Model
             ])
             ->put('all', $user->ideas()->count());
     }
+
+
+    public function formattedDescription(): Attribute
+    {
+        return Attribute::get(fn($value, $attributes) => str($attributes['description'])->markdown());
+    }
+
 }
