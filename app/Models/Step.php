@@ -17,6 +17,13 @@ class Step extends Model
     protected $attributes = ['completed' => false];
 
 
+    protected function casts(): array
+    {
+        return [
+            'completed' => 'boolean',
+        ];
+    }
+
 
     public function idea(): BelongsTo
     {
