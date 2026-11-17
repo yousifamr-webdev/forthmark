@@ -6,7 +6,7 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
-@plugin "@tailwindcss/typography"
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 @theme inline {
@@ -19,6 +19,8 @@
     --color-primary-foreground: var(--primary-foreground);
     --color-border: var(--border);
     --color-input: var(--input);
+    --color-accent: var(--accent);
+    --color-highlight: var(--highlight);
     --color-muted-foreground: var(--muted-foreground);
 }
 
@@ -41,21 +43,22 @@
     --highlight: #D9A441;
 }
 
+
 /* Dark theme */
 .dark {
     color-scheme: dark;
 
-    --background: black;
-    --foreground: #E8EEE9;
-    --card: #1D2922;
+    --background: #000000;
+    --foreground: #EEEEEE;
+    --card: #111111;
 
-    --primary: #8FB99A;
-    --primary-foreground: #142019;
+    --primary: #91B99A;
+    --primary-foreground: #101510;
 
-    --border: #35453A;
-    --input: #35453A;
-    --muted-foreground: #A0ADA4;
+    --border: #292929;
+    --input: #292929;
+    --muted-foreground: #999999;
 
-    --accent: #B9D2BD;
-    --highlight: #E2B45E;
+    --accent: #91B99A;
+    --highlight: #D6AE62;
 }

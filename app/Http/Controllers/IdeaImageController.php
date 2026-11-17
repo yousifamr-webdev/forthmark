@@ -13,7 +13,9 @@ class IdeaImageController extends Controller
     {
         Gate::authorize('workWith', $idea);
 
-        Storage::disk('public')->delete($idea->image_path);
+        if ($idea->image_path) {
+            Storage::disk('neon')->delete($idea->image_path);
+        }
 
         $idea->update(['image_path' => null]);
 

@@ -22,7 +22,7 @@ class UpdateIdea
         ])->toArray();
 
         if ($attributes['image'] ?? false) {
-            $data['image_path'] = $attributes['image']->store('ideas', 'public');
+            $data['image_path'] = $attributes['image']->store('ideas', 'neon');
         }
 
 

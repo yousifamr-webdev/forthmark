@@ -23,7 +23,7 @@
               <h2 id="modal-{{ $name }}-title" class="text-xl font-bold"> {{ $title }} </h2>
               <button @click="show = false" aria-label="Close modal">
 
-                  <x-lucide-x class="w-6 h-6 text-primary-500" />
+                  <x-lucide-x class="w-6 h-6 text-primary" />
               </button>
 
           </div>

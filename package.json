@@ -17,6 +17,8 @@
         "@laravel/multiplex": "^0.4.1"
     },
     "dependencies": {
+        "@neon/config": "^1.14.2",
+        "@neon/env": "^2.1.5",
         "@tailwindcss/typography": "^0.5.20",
         "alpinejs": "^3.17.5",
         "axios": "^1.21.0",
