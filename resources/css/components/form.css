@@ -6,6 +6,7 @@ label {
     border-radius: var(--radius-md);
     height: calc(var(--spacing) * 10);
     width: 100%;
+    font-size: var(--text-base);
     border: 1px solid;
     border-color: var(--color-input);
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
@@ -27,16 +28,11 @@ label {
         0 0 0 calc(var(--spacing) * 1) var(--color-primary);
 }
 
-@media (width >= theme(--breakpoint-md)) {
-    .input {
-        font-size: var(--text-sm);
-    }
-}
-
 .textarea {
     border-radius: var(--radius-md);
-    min-height: calc(var(--spacing) * 40);
+    min-height: calc(var(--spacing) * 32);
     width: 100%;
+    font-size: var(--text-base);
     border: 1px solid;
     border-color: var(--color-input);
     padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
@@ -46,6 +42,17 @@ label {
     outline-offset: 2px;
     resize: vertical;
     transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+@media (width >= theme(--breakpoint-md)) {
+    .input,
+    .textarea {
+        font-size: var(--text-sm);
+    }
+
+    .textarea {
+        min-height: calc(var(--spacing) * 40);
+    }
 }
 
 .textarea::placeholder {
@@ -67,14 +74,16 @@ label {
 input[type=file] {
     display: block;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     font-size: 0.875rem;
     line-height: 1.25rem;
     color: var(--color-foreground);
 }
 
 input[type=file]::file-selector-button {
-    margin-right: calc(var(--spacing) * 4);
-    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    margin-right: calc(var(--spacing) * 3);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
     border-radius: calc(var(--spacing) * 2);
     border-width: 0;
     font-size: 0.875rem;

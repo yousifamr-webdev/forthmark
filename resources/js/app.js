@@ -1,21 +1,25 @@
 import './bootstrap';
 
-const themeToggle = document.getElementById('theme-toggle');
+const themeToggles = document.querySelectorAll('[data-theme-toggle]');
 
-if (themeToggle instanceof HTMLButtonElement) {
-    const syncThemeToggle = () => {
+if (themeToggles.length > 0) {
+    const syncThemeToggles = () => {
         const isDark = document.documentElement.classList.contains('dark');
 
-        themeToggle.setAttribute('aria-pressed', String(isDark));
-        themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+        themeToggles.forEach((toggle) => {
+            toggle.setAttribute('aria-pressed', String(isDark));
+            toggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
+        });
     };
 
-    syncThemeToggle();
+    syncThemeToggles();
 
-    themeToggle.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
+    themeToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
 
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        syncThemeToggle();
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            syncThemeToggles();
+        });
     });
 }

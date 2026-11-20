@@ -6,13 +6,16 @@ button {
     background: var(--color-primary);
     border-radius: var(--radius-xl);
     color: var(--color-primary-foreground);
-    padding-inline: calc(var(--spacing) * 3);
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
     font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     cursor: pointer;
-    height: calc(var(--spacing) * 8);
-    line-height: calc(var(--spacing) * 8);
-    display: inline-block;
+    min-height: calc(var(--spacing) * 9);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: calc(var(--spacing) * 2);
+    white-space: nowrap;
     transition: background-color 150ms ease, opacity 150ms ease;
 }
 
@@ -29,12 +32,6 @@ button {
 .btn.btn-ghost {
     background: transparent;
     color: var(--color-foreground);
-}
-
-.btn:has(> svg) {
-    display: flex;
-    align-items: center;
-    column-gap: calc(var(--spacing) * 2);
 }
 
 .btn:hover {

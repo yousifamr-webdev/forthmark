@@ -23,19 +23,19 @@
 
 </head>
 
-<body class="bg-background text-foreground mx-auto container">
+<body class="bg-background text-foreground min-h-dvh overflow-x-hidden">
     <x-layout.nav />
-    <main class="mx-auto w-2xs sm:w-xl md:w-2xl lg:w-4xl mb-8">
+    <main class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         {{ $slot }}
-
     </main>
+
     @session('success')
-        <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" x-transition.opacity.duration.300ms
-            class="bg-primary absolute px-4 py-3 bottom-4 right-4 border rounded-lg text-primary-foreground">
-            {{ $value }}</div>
+        <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show"
+            x-transition.opacity.duration.300ms
+            class="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:right-4 z-50 bg-primary px-4 py-3 border rounded-lg text-primary-foreground text-center sm:text-left shadow-lg">
+            {{ $value }}
+        </div>
     @endsession
-
-
 </body>
 
 </html>
