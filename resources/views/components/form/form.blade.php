@@ -8,5 +8,6 @@
         </div>
 
         {{ $slot }}
+       
     </div>
 </div>

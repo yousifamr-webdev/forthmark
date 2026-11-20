@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" @keydown.escape.window="open = false" @click.away="open = false"
     class="border-b border-border px-4 sm:px-6">
     <div class="max-w-7xl mx-auto h-16 flex items-center justify-between gap-4">
-        <div class="shrink-0">
+        <div class="shrink-0 -mb-1.5">
             <x-logo.full-logo />
         </div>
 
@@ -30,8 +30,7 @@
         </div>
 
         {{-- Mobile hamburger button --}}
-
-        <div class="flex md:hidden items-center shrink-0">
+        <div class="flex md:hidden items-center shrink-0 gap-x-3">
             <x-btn.theme-toggle />
             @auth
                 <button type="button" @click="open = !open" :aria-expanded="open" aria-controls="mobile-nav-menu"
